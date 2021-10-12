@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!doctype html>
+    <html>
+
+    <head>
+        <title>Игровой бот</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <script>
+            function searchNumber(min, max) {
+                let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+
+                let input /*string*/ , number /*integer*/ ;
+                while (true) {
+                    input = prompt(`Введите целое число от ${min} до ${max} включительно:`);
+                    if ((number = +input) !== parseInt(input))
+                        alert("Введите число!");
+                    else {
+                        if (number < randomNumber) {
+                            alert(`Больше`);
+                        } else if (number > randomNumber) {
+                            alert(`Меньше`);
+                        } else {
+                            alert(`Правильно!`);
+                            break; // Раунд закончился победой
+                        }
+                    }
+                }
+            }
+
+            let input1 = prompt(`Введите минимальное целое число:`);
+            let input2 = prompt(`Введите максимальное целое число включительно:`);
+            let min, max; // Целые числа
+            if ((min = +input1) !== parseInt(input1) || (max = +input2) !== parseInt(input2)) {
+                alert("Диапазон ограничивается двумя целыми числами!");
+            } else
+                do {
+                    searchNumber(min, max);
+                } while (confirm(`Продолжить игру?`));
+        </script>
+    </body>
+
+    </html>
+</body>
+
+</html>
